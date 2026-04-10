@@ -11,3 +11,9 @@ wheels/
 
 # Env
 .env
+
+# VSCode
+.vscode
+
+# Claude
+claude_session_id
