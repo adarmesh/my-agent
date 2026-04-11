@@ -1,0 +1,194 @@
+[
+│   {
+│   │   'role': 'user',
+│   │   'content': [{'type': 'text', 'text': 'what will be datetime in 30 days? what if in 90 days? '}]
+│   },
+│   Message(
+│   │   id='msg_01PLRWFSmeTi4TdNtpnAuS8n',
+│   │   container=None,
+│   │   content=[
+│   │   │   TextBlock(
+│   │   │   │   citations=None,
+│   │   │   │   text="I'll get the current datetime and then calculate what it will be in 30 days and 90 days.",
+│   │   │   │   type='text'
+│   │   │   ),
+│   │   │   ToolUseBlock(
+│   │   │   │   id='toolu_01HxV8eVB56b3K2Ak7UWQXAW',
+│   │   │   │   caller=DirectCaller(type='direct'),
+│   │   │   │   input={},
+│   │   │   │   name='get_current_datetime',
+│   │   │   │   type='tool_use'
+│   │   │   )
+│   │   ],
+│   │   model='claude-haiku-4-5-20251001',
+│   │   role='assistant',
+│   │   stop_details=None,
+│   │   stop_reason='tool_use',
+│   │   stop_sequence=None,
+│   │   type='message',
+│   │   usage=Usage(
+│   │   │   cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0),
+│   │   │   cache_creation_input_tokens=0,
+│   │   │   cache_read_input_tokens=0,
+│   │   │   inference_geo='not_available',
+│   │   │   input_tokens=1183,
+│   │   │   output_tokens=63,
+│   │   │   server_tool_use=None,
+│   │   │   service_tier='standard'
+│   │   )
+│   ),
+│   {
+│   │   'role': 'user',
+│   │   'content': [
+│   │   │   {
+│   │   │   │   'tool_use_id': 'toolu_01HxV8eVB56b3K2Ak7UWQXAW',
+│   │   │   │   'type': 'tool_result',
+│   │   │   │   'content': '2026-04-11 17:06:13',
+│   │   │   │   'is_error': False
+│   │   │   }
+│   │   ]
+│   },
+│   Message(
+│   │   id='msg_01HAapmP9T1FQKQyDGZaS9BU',
+│   │   container=None,
+│   │   content=[
+│   │   │   TextBlock(citations=None, text="Now I'll calculate the dates 30 and 90 days from now:", type='text'),
+│   │   │   ToolUseBlock(
+│   │   │   │   id='toolu_013Fhf6sZw3H9qwY72oriBnU',
+│   │   │   │   caller=DirectCaller(type='direct'),
+│   │   │   │   input={
+│   │   │   │   │   'invocations': [
+│   │   │   │   │   │   {
+│   │   │   │   │   │   │   'name': 'add_duration_to_datetime',
+│   │   │   │   │   │   │   'arguments': '{"datetime_str": "2026-04-11 17:06:13", "duration": 30, "unit": "days", "input_format": "%Y-%m-%d %H:%M:%S"}'
+│   │   │   │   │   │   },
+│   │   │   │   │   │   {
+│   │   │   │   │   │   │   'name': 'add_duration_to_datetime',
+│   │   │   │   │   │   │   'arguments': '{"datetime_str": "2026-04-11 17:06:13", "duration": 90, "unit": "days", "input_format": "%Y-%m-%d %H:%M:%S"}'
+│   │   │   │   │   │   }
+│   │   │   │   │   ]
+│   │   │   │   },
+│   │   │   │   name='batch_tool',
+│   │   │   │   type='tool_use'
+│   │   │   )
+│   │   ],
+│   │   model='claude-haiku-4-5-20251001',
+│   │   role='assistant',
+│   │   stop_details=None,
+│   │   stop_reason='tool_use',
+│   │   stop_sequence=None,
+│   │   type='message',
+│   │   usage=Usage(
+│   │   │   cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0),
+│   │   │   cache_creation_input_tokens=0,
+│   │   │   cache_read_input_tokens=0,
+│   │   │   inference_geo='not_available',
+│   │   │   input_tokens=1270,
+│   │   │   output_tokens=241,
+│   │   │   server_tool_use=None,
+│   │   │   service_tier='standard'
+│   │   )
+│   ),
+│   {
+│   │   'role': 'user',
+│   │   'content': [
+│   │   │   {
+│   │   │   │   'tool_use_id': 'toolu_013Fhf6sZw3H9qwY72oriBnU',
+│   │   │   │   'type': 'tool_result',
+│   │   │   │   'content': "'batch_tool'",
+│   │   │   │   'is_error': True
+│   │   │   }
+│   │   ]
+│   },
+│   Message(
+│   │   id='msg_01KjhBHeHFdBVNUr6BEVPWcn',
+│   │   container=None,
+│   │   content=[
+│   │   │   TextBlock(citations=None, text='Let me calculate those separately:', type='text'),
+│   │   │   ToolUseBlock(
+│   │   │   │   id='toolu_01AqmJR1xk1cDd4Pz43Zsjib',
+│   │   │   │   caller=DirectCaller(type='direct'),
+│   │   │   │   input={
+│   │   │   │   │   'datetime_str': '2026-04-11 17:06:13',
+│   │   │   │   │   'duration': 30,
+│   │   │   │   │   'unit': 'days',
+│   │   │   │   │   'input_format': '%Y-%m-%d %H:%M:%S'
+│   │   │   │   },
+│   │   │   │   name='add_duration_to_datetime',
+│   │   │   │   type='tool_use'
+│   │   │   ),
+│   │   │   ToolUseBlock(
+│   │   │   │   id='toolu_01WPDygQhzDPsJWJqQuv6rF9',
+│   │   │   │   caller=DirectCaller(type='direct'),
+│   │   │   │   input={
+│   │   │   │   │   'datetime_str': '2026-04-11 17:06:13',
+│   │   │   │   │   'duration': 90,
+│   │   │   │   │   'unit': 'days',
+│   │   │   │   │   'input_format': '%Y-%m-%d %H:%M:%S'
+│   │   │   │   },
+│   │   │   │   name='add_duration_to_datetime',
+│   │   │   │   type='tool_use'
+│   │   │   )
+│   │   ],
+│   │   model='claude-haiku-4-5-20251001',
+│   │   role='assistant',
+│   │   stop_details=None,
+│   │   stop_reason='tool_use',
+│   │   stop_sequence=None,
+│   │   type='message',
+│   │   usage=Usage(
+│   │   │   cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0),
+│   │   │   cache_creation_input_tokens=0,
+│   │   │   cache_read_input_tokens=0,
+│   │   │   inference_geo='not_available',
+│   │   │   input_tokens=1516,
+│   │   │   output_tokens=258,
+│   │   │   server_tool_use=None,
+│   │   │   service_tier='standard'
+│   │   )
+│   ),
+│   {
+│   │   'role': 'user',
+│   │   'content': [
+│   │   │   {
+│   │   │   │   'tool_use_id': 'toolu_01AqmJR1xk1cDd4Pz43Zsjib',
+│   │   │   │   'type': 'tool_result',
+│   │   │   │   'content': 'Monday, May 11, 2026 05:06:13 PM',
+│   │   │   │   'is_error': False
+│   │   │   },
+│   │   │   {
+│   │   │   │   'tool_use_id': 'toolu_01WPDygQhzDPsJWJqQuv6rF9',
+│   │   │   │   'type': 'tool_result',
+│   │   │   │   'content': 'Friday, July 10, 2026 05:06:13 PM',
+│   │   │   │   'is_error': False
+│   │   │   }
+│   │   ]
+│   },
+│   Message(
+│   │   id='msg_01Dqwfvt4GR29ngAjVy9gyaq',
+│   │   container=None,
+│   │   content=[
+│   │   │   TextBlock(
+│   │   │   │   citations=None,
+│   │   │   │   text='Perfect! Here are the results:\n\n**Current datetime:** Saturday, April 11, 2026 05:06:13 PM\n\n**In 30 days:** Monday, May 11, 2026 05:06:13 PM\n\n**In 90 days:** Friday, July 10, 2026 05:06:13 PM',
+│   │   │   │   type='text'
+│   │   │   )
+│   │   ],
+│   │   model='claude-haiku-4-5-20251001',
+│   │   role='assistant',
+│   │   stop_details=None,
+│   │   stop_reason='end_turn',
+│   │   stop_sequence=None,
+│   │   type='message',
+│   │   usage=Usage(
+│   │   │   cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0),
+│   │   │   cache_creation_input_tokens=0,
+│   │   │   cache_read_input_tokens=0,
+│   │   │   inference_geo='not_available',
+│   │   │   input_tokens=1879,
+│   │   │   output_tokens=82,
+│   │   │   server_tool_use=None,
+│   │   │   service_tier='standard'
+│   │   )
+│   )
+]
